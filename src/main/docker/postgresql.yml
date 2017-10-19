@@ -1,0 +1,11 @@
+version: '2'
+services:
+    eztour-postgresql:
+        image: postgres:9.6.5
+        # volumes:
+        #     - ~/volumes/jhipster/eztour/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=eztour
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
