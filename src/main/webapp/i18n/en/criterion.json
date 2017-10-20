@@ -1,0 +1,24 @@
+{
+    "eztourApp": {
+        "criterion" : {
+            "home": {
+                "title": "Criteria",
+                "createLabel": "Create a new Criterion",
+                "createOrEditLabel": "Create or edit a Criterion"
+            },
+            "created": "A new Criterion is created with identifier {{ param }}",
+            "updated": "A Criterion is updated with identifier {{ param }}",
+            "deleted": "A Criterion is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Criterion {{ id }}?"
+            },
+            "detail": {
+                "title": "Criterion"
+            },
+            "type": "Type",
+            "maxValue": "Max Value",
+            "minValue": "Min Value",
+            "filter": "Filter"
+        }
+    }
+}

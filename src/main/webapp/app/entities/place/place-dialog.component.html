@@ -1,0 +1,55 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPlaceLabel" jhiTranslate="eztourApp.place.home.createOrEditLabel">Create or edit a Place</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!place.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="place.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="place.name"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.avgPrice" for="field_avgPrice">Avg Price</label>
+            <input type="number" class="form-control" name="avgPrice" id="field_avgPrice"
+                [(ngModel)]="place.avgPrice"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.lat" for="field_lat">Lat</label>
+            <input type="text" class="form-control" name="lat" id="field_lat"
+                [(ngModel)]="place.lat"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.lon" for="field_lon">Lon</label>
+            <input type="text" class="form-control" name="lon" id="field_lon"
+                [(ngModel)]="place.lon"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.startWorkTime" for="field_startWorkTime">Start Work Time</label>
+            <input type="text" class="form-control" name="startWorkTime" id="field_startWorkTime"
+                [(ngModel)]="place.startWorkTime"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="eztourApp.place.endWorkTime" for="field_endWorkTime">End Work Time</label>
+            <input type="text" class="form-control" name="endWorkTime" id="field_endWorkTime"
+                [(ngModel)]="place.endWorkTime"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

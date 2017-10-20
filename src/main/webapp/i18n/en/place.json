@@ -1,0 +1,27 @@
+{
+    "eztourApp": {
+        "place" : {
+            "home": {
+                "title": "Places",
+                "createLabel": "Create a new Place",
+                "createOrEditLabel": "Create or edit a Place"
+            },
+            "created": "A new Place is created with identifier {{ param }}",
+            "updated": "A Place is updated with identifier {{ param }}",
+            "deleted": "A Place is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Place {{ id }}?"
+            },
+            "detail": {
+                "title": "Place"
+            },
+            "name": "Name",
+            "avgPrice": "Avg Price",
+            "lat": "Lat",
+            "lon": "Lon",
+            "startWorkTime": "Start Work Time",
+            "endWorkTime": "End Work Time",
+            "categories": "Categories"
+        }
+    }
+}

@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="eztourApp.criterion.home.title">Criteria</span>
+        <button class="btn btn-primary float-right jh-create-entity create-criterion" [routerLink]="['/', { outlets: { popup: ['criterion-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="eztourApp.criterion.home.createLabel">
+            Create new Criterion
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="criteria">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="eztourApp.criterion.type">Type</span></th>
+            <th><span jhiTranslate="eztourApp.criterion.maxValue">Max Value</span></th>
+            <th><span jhiTranslate="eztourApp.criterion.minValue">Min Value</span></th>
+            <th><span jhiTranslate="eztourApp.criterion.filter">Filter</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let criterion of criteria ;trackBy: trackId">
+                <td><a [routerLink]="['../criterion', criterion.id ]">{{criterion.id}}</a></td>
+                <td jhiTranslate="{{'eztourApp.TypeEnum.' + criterion.type}}">{{criterion.type}}</td>
+                <td>{{criterion.maxValue}}</td>
+                <td>{{criterion.minValue}}</td>
+                <td>
+                    <div *ngIf="criterion.filterId">
+                        <a [routerLink]="['../filter', criterion.filterId  ]" >{{criterion.filterId}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../criterion', criterion.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'criterion/'+ criterion.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'criterion/'+ criterion.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

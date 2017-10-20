@@ -1,0 +1,35 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "filter",
+            "otherEntityName": "filter",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "TypeEnum",
+            "fieldValues": "LAT,LON,ACTIVE_TIME,CATEGORY"
+        },
+        {
+            "fieldName": "maxValue",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "minValue",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20171020091741",
+    "entityTableName": "criterion",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

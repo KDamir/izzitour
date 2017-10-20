@@ -1,0 +1,55 @@
+entity Place {
+	name String,
+    avgPrice Double,
+    lat String,
+    lon String,
+    startWorkTime String,
+    endWorkTime String
+}
+
+entity Category {
+	value CategoryEnum
+}
+
+enum CategoryEnum {
+	CAFE, RESTORAUNT, MUSEUM
+}
+
+entity Question {
+	questionText String
+}
+
+entity Answer {
+	result String
+}
+
+entity Filter {
+	probability Double
+}
+
+entity Criterion {
+	type TypeEnum,
+    maxValue String,
+    minValue String required
+}
+
+enum TypeEnum {
+	LAT, LON, ACTIVE_TIME, CATEGORY
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Place{categories} to Category,
+    Question{answers} to Answer,
+	Answer{filter} to Filter,
+    Filter{criteria} to Criterion
+}
+
+relationship ManyToMany {
+	Answer{nextQuestions} to Question
+}
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl

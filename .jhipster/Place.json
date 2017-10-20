@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "categories",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "place"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "avgPrice",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "lat",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "lon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "startWorkTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endWorkTime",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20171020091736",
+    "entityTableName": "place",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

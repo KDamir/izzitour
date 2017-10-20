@@ -1,0 +1,29 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "answer",
+            "otherEntityName": "answer",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "criteria",
+            "otherEntityName": "criterion",
+            "otherEntityRelationshipName": "filter"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "probability",
+            "fieldType": "Double"
+        }
+    ],
+    "changelogDate": "20171020091740",
+    "entityTableName": "filter",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false
+}

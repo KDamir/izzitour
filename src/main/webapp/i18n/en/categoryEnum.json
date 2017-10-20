@@ -1,0 +1,10 @@
+{
+    "eztourApp": {
+        "CategoryEnum" : {
+            "null": "",
+            "CAFE": "CAFE",
+            "RESTORAUNT": "RESTORAUNT",
+            "MUSEUM": "MUSEUM"
+        }
+    }
+}

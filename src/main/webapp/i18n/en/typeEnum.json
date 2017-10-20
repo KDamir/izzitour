@@ -1,0 +1,11 @@
+{
+    "eztourApp": {
+        "TypeEnum" : {
+            "null": "",
+            "LAT": "LAT",
+            "LON": "LON",
+            "ACTIVE_TIME": "ACTIVE_TIME",
+            "CATEGORY": "CATEGORY"
+        }
+    }
+}

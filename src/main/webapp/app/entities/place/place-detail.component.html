@@ -1,0 +1,45 @@
+
+<div *ngIf="place">
+    <h2><span jhiTranslate="eztourApp.place.detail.title">Place</span> {{place.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="eztourApp.place.name">Name</span></dt>
+        <dd>
+            <span>{{place.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.place.avgPrice">Avg Price</span></dt>
+        <dd>
+            <span>{{place.avgPrice}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.place.lat">Lat</span></dt>
+        <dd>
+            <span>{{place.lat}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.place.lon">Lon</span></dt>
+        <dd>
+            <span>{{place.lon}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.place.startWorkTime">Start Work Time</span></dt>
+        <dd>
+            <span>{{place.startWorkTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.place.endWorkTime">End Work Time</span></dt>
+        <dd>
+            <span>{{place.endWorkTime}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'place/'+ place.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

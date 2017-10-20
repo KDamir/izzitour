@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="eztourApp.place.home.title">Places</span>
+        <button class="btn btn-primary float-right jh-create-entity create-place" [routerLink]="['/', { outlets: { popup: ['place-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="eztourApp.place.home.createLabel">
+            Create new Place
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="places">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="eztourApp.place.name">Name</span></th>
+            <th><span jhiTranslate="eztourApp.place.avgPrice">Avg Price</span></th>
+            <th><span jhiTranslate="eztourApp.place.lat">Lat</span></th>
+            <th><span jhiTranslate="eztourApp.place.lon">Lon</span></th>
+            <th><span jhiTranslate="eztourApp.place.startWorkTime">Start Work Time</span></th>
+            <th><span jhiTranslate="eztourApp.place.endWorkTime">End Work Time</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let place of places ;trackBy: trackId">
+                <td><a [routerLink]="['../place', place.id ]">{{place.id}}</a></td>
+                <td>{{place.name}}</td>
+                <td>{{place.avgPrice}}</td>
+                <td>{{place.lat}}</td>
+                <td>{{place.lon}}</td>
+                <td>{{place.startWorkTime}}</td>
+                <td>{{place.endWorkTime}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../place', place.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'place/'+ place.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'place/'+ place.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

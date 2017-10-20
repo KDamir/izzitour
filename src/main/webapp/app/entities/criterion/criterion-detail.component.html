@@ -1,0 +1,39 @@
+
+<div *ngIf="criterion">
+    <h2><span jhiTranslate="eztourApp.criterion.detail.title">Criterion</span> {{criterion.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="eztourApp.criterion.type">Type</span></dt>
+        <dd>
+            <span jhiTranslate="{{'eztourApp.TypeEnum.' + criterion.type}}">{{criterion.type}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.criterion.maxValue">Max Value</span></dt>
+        <dd>
+            <span>{{criterion.maxValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.criterion.minValue">Min Value</span></dt>
+        <dd>
+            <span>{{criterion.minValue}}</span>
+        </dd>
+        <dt><span jhiTranslate="eztourApp.criterion.filter">Filter</span></dt>
+        <dd>
+            <div *ngIf="criterion.filterId">
+                <a [routerLink]="['/filter', criterion.filterId]">{{criterion.filterId}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'criterion/'+ criterion.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

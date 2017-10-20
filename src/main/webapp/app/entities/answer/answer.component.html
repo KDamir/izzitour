@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="eztourApp.answer.home.title">Answers</span>
+        <button class="btn btn-primary float-right jh-create-entity create-answer" [routerLink]="['/', { outlets: { popup: ['answer-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="eztourApp.answer.home.createLabel">
+            Create new Answer
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="answers">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="eztourApp.answer.result">Result</span></th>
+            <th><span jhiTranslate="eztourApp.answer.question">Question</span></th>
+            <th><span jhiTranslate="eztourApp.answer.nextQuestions">Next Questions</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let answer of answers ;trackBy: trackId">
+                <td><a [routerLink]="['../answer', answer.id ]">{{answer.id}}</a></td>
+                <td>{{answer.result}}</td>
+                <td>
+                    <div *ngIf="answer.questionId">
+                        <a [routerLink]="['../question', answer.questionId  ]" >{{answer.questionId}}</a>
+                    </div>
+                </td>
+                <td>
+                    <span *ngFor="let nextQuestions of answer.nextQuestions; let last = last">
+                            <a class="form-control-static" [routerLink]="['../question', nextQuestions?.id ]">{{nextQuestions.questionText}}</a>{{last ? '' : ', '}}
+                        </span>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../answer', answer.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'answer/'+ answer.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'answer/'+ answer.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
